@@ -1,0 +1,60 @@
+z = 1
+link = {}
+
+while z <= 3:
+
+    a = input("Enter signal power value (W): ").strip()
+    b = input("Enter noise power value (W): ").strip()
+    c = input("Enter data rate value (kbps): ").strip()
+
+    try:
+        a = float(a)
+        b = float(b)
+        c = float(c)
+
+        if a <= 0 or b <= 0 or c <= 0:
+            print("Values must be greater than zero. Enter again.")
+
+        else:
+            print("Signal power value:", a, "watts")
+            print("Noise power value:", b, "watts")
+            print("Data rate value:", c, "kbps")
+
+            SNR = a / b
+
+            performance_index = SNR * c
+
+            print("The SNR value for Link", z, "is", SNR)
+            print("The performance index for Link", z, "is",
+                  performance_index)
+
+            link[z] = performance_index
+
+            z += 1
+
+    except ValueError:
+        print("You have entered a wrong value. Enter numbers only.")
+
+
+# Comparing the three links
+
+if link[1] == link[2] == link[3]:
+    print("All three links have equal performance.")
+
+elif link[1] == link[2] and link[1] > link[3]:
+    print("Link 1 and Link 2 have the best equal performance.")
+
+elif link[1] == link[3] and link[1] > link[2]:
+    print("Link 1 and Link 3 have the best equal performance.")
+
+elif link[2] == link[3] and link[2] > link[1]:
+    print("Link 2 and Link 3 have the best equal performance.")
+
+elif link[1] > link[2] and link[1] > link[3]:
+    print("Link 1 has the best performance.")
+
+elif link[2] > link[1] and link[2] > link[3]:
+    print("Link 2 has the best performance.")
+
+elif link[3] > link[1] and link[3] > link[2]:
+    print("Link 3 has the best performance.")

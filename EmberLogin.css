@@ -1,0 +1,310 @@
+/*
+ * EMBER INTELLIGENCE — LOGIN SCREEN / PHASE 1
+ * Add `import "./EmberLogin.css";` directly AFTER `import "./App.css";`
+ * This file affects only the login screen, not the existing dashboard or Firebase logic.
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap');
+
+.login-page {
+  --ember-orange: #ff713b;
+  --ember-peach: #ffad7e;
+  --ember-muted: #e0d4cf;
+  --ember-white: #f9f6f5;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  min-height: 100svh;
+  padding: 28px clamp(26px, 5.5vw, 90px) 34px;
+  background:
+    radial-gradient(ellipse 48% 48% at 65% -22%, rgba(142, 53, 29, 0.15), transparent 72%),
+    radial-gradient(ellipse 68% 40% at 20% 105%, rgba(135, 36, 16, 0.28), transparent 73%),
+    #080707;
+  color: var(--ember-white);
+}
+
+/* The luminous orange planet silhouette lives behind the left hero. */
+.login-page::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: min(920px, 95vw);
+  aspect-ratio: 1;
+  left: -12%;
+  bottom: -610px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 46% 18%,
+    #ffc299 0%, #ff9158 11%, #fb6736 25%, #ba391b 42%,
+    #5b1a12 57%, #1b0c0b 72%, #090808 82%);
+  box-shadow:
+    0 -12px 40px rgba(250, 101, 51, 0.22),
+    0 -36px 105px rgba(222, 57, 18, 0.15),
+    0 -90px 175px rgba(239, 71, 28, 0.10);
+  pointer-events: none;
+}
+
+.login-page::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: -20%;
+  top: 24%;
+  width: 62%;
+  height: 66%;
+  background: radial-gradient(ellipse, rgba(251, 109, 53, 0.12), transparent 70%);
+  filter: blur(65px);
+  pointer-events: none;
+}
+
+.login-page .login-topbrand {
+  position: relative;
+  z-index: 4;
+  gap: 12px;
+  padding: 0;
+  color: #fff9f5;
+  letter-spacing: 0.14em;
+}
+.login-page .login-topbrand > span {
+  font-family: 'Manrope', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+.login-page .brand-accent { color: #ff8f5a; }
+.login-page .brand-emblem {
+  width: 39px;
+  height: 39px;
+  border: 1px solid rgba(255, 165, 121, 0.43);
+  border-radius: 13px;
+  background: linear-gradient(150deg, #381c16 0%, #16100f 100%);
+  color: #ff9c69;
+  box-shadow: inset 0 0 16px rgba(255, 108, 58, 0.09), 0 3px 19px rgba(0,0,0,0.22);
+}
+.login-page .login-shell {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1.12fr) minmax(340px, 0.78fr);
+  gap: clamp(32px, 6vw, 118px);
+  align-items: center;
+  width: 100%;
+  max-width: 1350px;
+  min-height: calc(100svh - 125px);
+  margin: 0 auto;
+}
+.login-page .login-story {
+  padding: clamp(40px, 7vw, 120px) 0 clamp(100px, 13vw, 165px);
+  min-height: unset;
+  overflow: visible;
+}
+.login-page .eyebrow {
+  width: fit-content;
+  display: inline-flex;
+  gap: 9px;
+  padding: 8px 13px;
+  background: rgba(251, 104, 51, 0.085);
+  border: 1px solid rgba(255, 156, 106, .24);
+  border-radius: 100px;
+  font-size: 11px;
+  font-weight: 700;
+  color: #ffcfaf;
+  letter-spacing: .155em;
+}
+.login-page .eyebrow-line { width: 7px; height: 7px; border-radius: 50%; background: #ff7b45; box-shadow: 0 0 12px #ff713b; }
+.login-page .login-story h1 {
+  position: relative;
+  z-index: 2;
+  max-width: 750px;
+  margin: 29px 0 22px;
+  font-family: 'Manrope', sans-serif;
+  font-size: clamp(47px, 5.4vw, 76px);
+  font-weight: 800;
+  line-height: 1.09;
+  letter-spacing: -0.045em;
+  text-wrap: balance;
+  color: var(--ember-white);
+}
+.login-page .login-story h1 em {
+  font-style: normal;
+  background: linear-gradient(100deg, #ffe0c2 0%, #ffad7e 52%, #ef6536 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.login-page .login-story > p {
+  max-width: 495px;
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  color: #e3d9d4;
+  font-size: 15px;
+  line-height: 1.75;
+  letter-spacing: 0;
+}
+.login-page .login-highlights { gap: 8px; margin-top: 27px; }
+.login-page .login-highlights span {
+  min-height: 34px;
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 11px;
+  border: 1px solid rgba(255,255,255,0.095);
+  border-radius: 100px;
+  background: rgba(29, 22, 20, 0.89);
+  color: #f0e5df;
+  font-size: 12px;
+  backdrop-filter: blur(10px);
+}
+.login-page .login-highlights svg { color: #fa9663; }
+.login-page .login-orb {
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+  left: -5%;
+  right: auto;
+  bottom: -300px;
+  width: 590px;
+  height: 590px;
+  border: 1px solid rgba(251, 115, 67, 0.08);
+  box-shadow: none;
+}
+.login-page .login-orb span { border-color: rgba(251, 115, 67, 0.09); }
+.login-page .login-orb i { background: #f69d66; box-shadow: 0 0 34px #f46f38; }
+
+/* Restrained glass login panel, inspired by premium SaaS interfaces. */
+.login-page .login-panel {
+  position: relative;
+  width: 100%;
+  max-width: 460px;
+  justify-self: end;
+  padding: clamp(30px, 3vw, 43px);
+  overflow: hidden;
+  background: linear-gradient(140deg, rgba(35, 25, 23, 0.99), rgba(20, 16, 16, 0.99));
+  border: 1px solid rgba(255, 199, 169, 0.27);
+  border-radius: 22px;
+  box-shadow: 0 32px 90px rgba(0,0,0,0.38), 0 0 85px rgba(255,99,47,0.06);
+  backdrop-filter: blur(24px);
+}
+.login-page .login-panel::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 7%;
+  width: 86%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 153, 100, .54), transparent);
+}
+.login-page .login-icon {
+  display: flex;
+  width: 46px;
+  height: 46px;
+  margin-bottom: 29px;
+  color: #ffaf81;
+  background: #2d1a16;
+  border: 1px solid #563327;
+  border-radius: 13px;
+}
+.login-page .section-overline {
+  color: #ffbf9d;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .12em;
+}
+.login-page .login-panel h2 {
+  font-family: 'Manrope', sans-serif;
+  font-size: 33px;
+  font-weight: 800;
+  letter-spacing: -.03em;
+  color: #f8f5f3;
+}
+.login-page .login-panel .muted {
+  margin-bottom: 28px;
+  color: #e1d4ce;
+  font-size: 14px;
+  line-height: 1.7;
+}
+.login-page .auth-form label { color: #f4e9e4; font-size: 13px; margin-bottom: 9px; font-weight: 600; }
+.login-page .auth-form input {
+  width: 100%;
+  margin-bottom: 18px;
+  min-height: 48px;
+  padding: 13px 15px;
+  background: #120f0e;
+  border: 1px solid #654c42;
+  border-radius: 11px;
+  color: #f7f1ef;
+  font-size: 14px;
+  transition: border-color .2s, box-shadow .2s;
+}
+.login-page .auth-form input::placeholder { color: #c4b1a8; }
+.login-page .auth-form input:focus { border-color: #fa8957; outline: none; box-shadow: 0 0 0 3px rgba(249, 115, 58, .13); }
+.login-page .primary-button {
+  min-height: 49px;
+  margin-top: 6px;
+  border-radius: 10px;
+  border: 1px solid #ffa174;
+  background: linear-gradient(100deg, #ff995e 0%, #fb713a 100%);
+  box-shadow: 0 10px 34px rgba(247, 103, 48, 0.16);
+  color: #24100a;
+  font-family: 'Inter', sans-serif;
+  font-weight: 800;
+  font-size: 13px;
+  transition: filter .2s, transform .2s;
+}
+.login-page .primary-button:hover { filter: brightness(1.1); transform: translateY(-1px); }
+.login-page .primary-button:disabled { opacity: .55; transform: none; cursor: wait; }
+.login-page .form-error { color: #ffb5a1; }
+.login-page .login-fineprint { color: #c9b9b2; margin-top: 24px; font-size: 11px; }
+.login-page .login-fineprint svg { color: #ba8167; }
+.login-page .login-topbrand, .login-page .login-story, .login-page .login-panel { isolation: isolate; }
+
+@media (max-width: 1000px) {
+  .login-page .login-shell { grid-template-columns: 1fr; max-width: 680px; gap: 25px; margin: 35px auto 60px; }
+  .login-page .login-story { padding: 20px 0 0; }
+  .login-page .login-story h1 { max-width: 580px; font-size: clamp(42px, 9vw, 67px); }
+  .login-page .login-orb { display: none; }
+  .login-page .login-panel { max-width: 100%; justify-self: stretch; }
+  .login-page::before { left: -28%; bottom: -860px; }
+}
+@media (max-width: 600px) {
+  .login-page { padding: 22px 18px 44px; }
+  .login-page .login-shell { gap: 22px; margin-top: 28px; }
+  .login-page .login-story { padding: 6px 0 0; }
+  .login-page .login-story h1 { font-size: clamp(40px, 11vw, 54px); }
+  .login-page .login-story > p { font-size: 13px; }
+  .login-page .login-panel { border-radius: 18px; padding: 27px 23px; }
+  .login-page .login-highlights { gap: 7px; }
+  .login-page .login-highlights span { font-size: 10px; }
+  .login-page::before { width: 800px; left: -360px; bottom: -735px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .login-page .primary-button { transition: none; }
+}
+
+/* Contrast and legibility finishing pass */
+.login-page {
+  font-family: 'Inter', system-ui, sans-serif;
+}
+.login-page .login-highlights span,
+.login-page .login-fineprint,
+.login-page .login-panel .muted,
+.login-page .login-story > p,
+.login-page .auth-form label,
+.login-page .auth-form input,
+.login-page .primary-button {
+  font-family: 'Inter', system-ui, sans-serif;
+}
+.login-page .login-panel h2,
+.login-page .login-story h1,
+.login-page .login-topbrand > span {
+  font-family: 'Manrope', system-ui, sans-serif;
+}
+.login-page .login-story h1 em {
+  background: linear-gradient(110deg, #ffe9d6 0%, #ffc196 55%, #ff9a62 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.login-page .primary-button:focus-visible,
+.login-page .auth-form input:focus-visible {
+  outline: 2px solid #ffbf92;
+  outline-offset: 3px;
+}
